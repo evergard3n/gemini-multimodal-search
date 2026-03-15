@@ -1,0 +1,22 @@
+{
+  "name": "gemini-multimodal-search",
+  "version": "1.0.0",
+  "description": "Multimodal search with Gemini Embedding 2 and Qdrant — text, images, audio, and video in one vector space",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "setup": "tsx src/setup.ts"
+  },
+  "dependencies": {
+    "@google/genai": "^1.40.0",
+    "@qdrant/js-client-rest": "^1.13.0",
+    "fastify": "^5.2.1",
+    "@fastify/multipart": "^9.0.3"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "@types/node": "^22.0.0"
+  }
+}
