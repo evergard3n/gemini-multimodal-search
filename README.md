@@ -16,10 +16,18 @@ A minimal, self-contained implementation of multimodal semantic search using Goo
 
 ## How It Works
 
-```
-Upload file → Detect type → Process → Embed → Store in Qdrant
-                                                     ↓
-                           Search query → Embed → Match all vectors → Results
+```mermaid
+flowchart TD
+    A[User uploads file/content] --> B{Detect type}
+    B --> C[Text]
+    B --> D[Image]
+    B --> E[Audio/Video]
+    C --> C1[Chunk + embed text]
+    D --> D1[embedImage\nraw bytes]
+    E --> E1[Transcribe\n→ text chunks\n+ embedMedia]
+    C1 --> Q[(Qdrant\nall vectors in\nsame 1536d space)]
+    D1 --> Q
+    E1 --> Q
 ```
 
 | File Type | Processing | Vectors Created |

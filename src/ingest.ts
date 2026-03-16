@@ -44,7 +44,7 @@ const AUDIO_EXTENSIONS = new Set(['mp3', 'm4a', 'wav', 'flac', 'ogg', 'oga']);
 const VIDEO_EXTENSIONS = new Set(['mp4', 'mpeg', 'mov', 'avi', 'webm', 'wmv', 'flv', 'mpg', '3gpp']);
 const TEXT_EXTENSIONS = new Set(['txt', 'md', 'html', 'csv', 'json', 'xml']);
 
-function detectFileType(filename: string, mimeType: string): FileType {
+export function detectFileType(filename: string, mimeType: string): FileType {
   const ext = filename.split('.').pop()?.toLowerCase() || '';
 
   if (IMAGE_EXTENSIONS.has(ext) || mimeType.startsWith('image/')) return 'image';
@@ -64,7 +64,7 @@ function detectFileType(filename: string, mimeType: string): FileType {
  * Split text into chunks of roughly `targetSize` characters,
  * breaking at paragraph boundaries when possible.
  */
-function chunkText(text: string, targetSize = 1000): string[] {
+export function chunkText(text: string, targetSize = 1000): string[] {
   const paragraphs = text.split(/\n\n+/);
   const chunks: string[] = [];
   let current = '';

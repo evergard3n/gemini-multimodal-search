@@ -164,7 +164,7 @@ async function waitForActive(genai: GoogleGenAI, fileName: string): Promise<void
  * - [1:23] The next topic is...
  * - [1:02:34] Speaker 2: For the final section...
  */
-function parseTranscript(raw: string): TranscriptionResult {
+export function parseTranscript(raw: string): TranscriptionResult {
   const lines = raw.split('\n');
   const segments: TranscriptSegment[] = [];
   let current: { start: number; speaker?: number; text: string } | null = null;
@@ -223,13 +223,13 @@ function parseTranscript(raw: string): TranscriptionResult {
   return { segments, fullText, formattedText, durationSeconds: duration };
 }
 
-function parseTimestamp(ts: string): number {
+export function parseTimestamp(ts: string): number {
   const parts = ts.split(':').map(Number);
   if (parts.length === 3) return parts[0] * 3600 + parts[1] * 60 + parts[2];
   return parts[0] * 60 + parts[1];
 }
 
-function formatTimestamp(seconds: number): string {
+export function formatTimestamp(seconds: number): string {
   const m = Math.floor(seconds / 60);
   const s = Math.floor(seconds % 60);
   return `${m}:${String(s).padStart(2, '0')}`;

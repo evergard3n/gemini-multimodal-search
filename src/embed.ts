@@ -158,7 +158,7 @@ export async function embedVideo(videoData: Buffer, mimeType: string): Promise<n
  * L2 normalize a vector so cosine similarity works correctly.
  * Qdrant uses cosine distance by default, which requires normalized vectors.
  */
-function l2Normalize(vector: number[]): number[] {
+export function l2Normalize(vector: number[]): number[] {
   const norm = Math.sqrt(vector.reduce((sum, v) => sum + v * v, 0));
   if (norm === 0) return vector;
   return vector.map((v) => v / norm);

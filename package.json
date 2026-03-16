@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "start": "tsx src/server.ts",
-    "setup": "tsx src/setup.ts"
+    "setup": "tsx src/setup.ts",
+    "test": "node --import tsx --test src/__tests__/*.test.ts"
   },
   "dependencies": {
     "@google/genai": "^1.40.0",
